@@ -61,15 +61,15 @@ def form_insert_get():
 @app.route('/people/new', methods=['POST'])
 def form_insert_post():
     cursor = mysql.get_db().cursor()
-    inputData = (request.form.get('fldName'), request.form.get('fldAge'), request.form.get('fldHeight'),
-                 request.form.get('fldWeight'))
+    inputData = (request.form.get['fldName'], request.form.get['fldAge'], request.form.get['fldHeight'],
+                 request.form.get['fldWeight'])
     sql_insert_query = """INSERT INTO bioStats (fldName,fldAge,fldHeight,fldWeight) VALUES (%s, %s,%s, %s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
 
 
-@app.route('/delete/<int:person_id>', methods=['POST'])
+@app.route('/delete/<int:person_id>', methods=['DELETE'])
 def form_delete_post(person_id):
     cursor = mysql.get_db().cursor()
     sql_delete_query = """DELETE FROM bioStats WHERE id = %s """
