@@ -72,7 +72,7 @@ def form_insert_post():
 @app.route('/delete/<int:person_id>', methods=['DELETE'])
 def form_delete_post(person_id):
     cursor = mysql.get_db().cursor()
-    sql_delete_query = """DELETE FROM bioStats WHERE id = %s """
+    sql_delete_query = """DELETE FROM bioStates WHERE id = %s """
     cursor.execute(sql_delete_query, person_id)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -83,7 +83,7 @@ def api_browse() -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM bioStats')
     result = cursor.fetchall()
-    json_result = json.dumps(result);
+    json_result = json.dumps(result)
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
@@ -93,7 +93,7 @@ def api_retrieve(person_id) -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM bioStats WHERE id=%s', person_id)
     result = cursor.fetchall()
-    json_result = json.dumps(result);
+    json_result = json.dumps(result)
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
@@ -121,12 +121,11 @@ def api_edit(person_id) -> str:
         %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
-
     resp = Response(status=200, mimetype='application/json')
     return resp
 
 
-@app.route('/api/people/<int:person_id>', methods=['DELETE'])
+@app.route('/api/v1/people/<int:person_id>', methods=['DELETE'])
 def api_delete(person_id) -> str:
     cursor = mysql.get_db().cursor()
     sql_delete_query = """DELETE FROM bioStats WHERE id = %s """
@@ -138,4 +137,3 @@ def api_delete(person_id) -> str:
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
-
