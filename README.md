@@ -1,21 +1,27 @@
 # PythonDockerFlaskSQL
 
-This project is part of part 3 of my homework assignment. This project taught me how to make a webpage with Docker, Python, Flask and SQL.
+This is my Final individual project for the IS601 course. In this project, I set up REST API with docker, flask, SQL and Postman 
 
-## SQL Data Screenshot
-![dbScreenshot](app/screenshots_part3/sqldb.JPG)
+## Postman GET- showing list of records in my database
+![postman showing list of records](screenshots/postman-get.JPG)
 
-## Webpage Screenshot
-![homepage](app/screenshots_part3/webpage.JPG)
+## Postman GET- showing list of 1 record in my database
+![postman showing list of 1 record](screenshots/postman-get1record.JPG)
 
-## Screenshot to add new items to database
-![newSS](app/screenshots_part3/New.JPG)
+## Postman POST - Adding new record
+![AddingNewRecord](screenshots/postman-postnewrecord.JPG)
 
-## Screenshot to view an existing item
-![existing item](app/screenshots_part3/view.JPG)
+### Screenshot of added record
+![ProofofAddedRecord](screenshots/postman-afteraddingnewrecord.JPG)
 
-## Screenshot to edit an existing item
-![edit existing](app/screenshots_part3/Edit.JPG)
+## Postman PUT - Editing an existing record
+![Editing](screenshots/postman-whileediting.JPG)
 
-## Screenshot to delete an existing item
-![delete existing](app/screenshots_part3/delete.JPG)
+### Screenshot of the edited record
+![edited record](screenshots/postman-afterediting.JPG)
+
+## Postman DELETE - Deleting an existing record
+![delete existing](screenshots/postman-delete.JPG)
+
+### Screenshot after Deleting
+![final ss](screenshots/postman-afterdeleting.JPG)
